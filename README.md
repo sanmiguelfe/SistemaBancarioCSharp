@@ -42,7 +42,7 @@ dotnet run
 
 # Captura del Sistema
 # Enlaces Útiles
-*Documentación del lenguaje C#*
+**Documentación del lenguaje C#: **
 https://learn.microsoft.com/es-es/dotnet/csharp/
 
 # Comandos para agregar archivos al repositorio
