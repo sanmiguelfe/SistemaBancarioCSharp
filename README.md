@@ -42,9 +42,8 @@ dotnet run
 
 # Captura del Sistema
 # Enlaces Útiles
+*Documentación del lenguaje C#*
 https://learn.microsoft.com/es-es/dotnet/csharp/
-
-https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
 # Comandos para agregar archivos al repositorio
 Si has realizado cambios localmente y quieres subirlos a GitHub, utiliza los siguientes comandos:
