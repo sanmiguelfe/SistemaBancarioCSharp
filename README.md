@@ -32,7 +32,7 @@ SistemaBancarioCSharp/
 # Cómo Ejecutar el Proyecto
   Clona este repositorio:
   
-git clone https://github.com/tuusuario/SistemaBancarioCSharp.git
+git clone https://github.com/sanmiguelfe/SistemaBancarioCSharp.git
 
   Abre el proyecto en Visual Studio o cualquier editor compatible con C#.
   Configura la conexión a la base de datos en el archivo appsettings.json.
