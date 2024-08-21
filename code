@@ -1,0 +1,108 @@
+# Codigo de prueba
+## Clase CuentaBancaria
+### Esta clase define una cuenta bancaria con operaciones básicas de depósito, retiro y transferencia.
+
+using System;
+
+namespace SistemaBancario
+{
+    public class CuentaBancaria
+    {
+        public string NumeroCuenta { get; private set; }
+        public string NombreTitular { get; private set; }
+        public decimal Saldo { get; private set; }
+
+        public CuentaBancaria(string numeroCuenta, string nombreTitular, decimal saldoInicial)
+        {
+            NumeroCuenta = numeroCuenta;
+            NombreTitular = nombreTitular;
+            Saldo = saldoInicial;
+        }
+
+        public void Depositar(decimal monto)
+        {
+            if (monto > 0)
+            {
+                Saldo += monto;
+                Console.WriteLine($"Depósito de {monto:C} realizado correctamente.");
+            }
+            else
+            {
+                Console.WriteLine("El monto a depositar debe ser positivo.");
+            }
+        }
+
+        public void Retirar(decimal monto)
+        {
+            if (monto > 0 && Saldo >= monto)
+            {
+                Saldo -= monto;
+                Console.WriteLine($"Retiro de {monto:C} realizado correctamente.");
+            }
+            else
+            {
+                Console.WriteLine("El monto a retirar es inválido o insuficiente.");
+            }
+        }
+
+        public void Transferir(CuentaBancaria cuentaDestino, decimal monto)
+        {
+            if (cuentaDestino != null && monto > 0 && Saldo >= monto)
+            {
+                Saldo -= monto;
+                cuentaDestino.Depositar(monto);
+                Console.WriteLine($"Transferencia de {monto:C} a la cuenta {cuentaDestino.NumeroCuenta} realizada correctamente.");
+            }
+            else
+            {
+                Console.WriteLine("Error en la transferencia. Revise el monto o la cuenta de destino.");
+            }
+        }
+
+        public void ConsultarSaldo()
+        {
+            Console.WriteLine($"Saldo actual de la cuenta {NumeroCuenta}: {Saldo:C}");
+        }
+    }
+}
+
+##  2. Clase Program para ejecutar el sistema
+ using System;
+
+namespace SistemaBancario
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Crear cuentas bancarias de ejemplo
+            CuentaBancaria cuenta1 = new CuentaBancaria("001", "Juan Pérez", 5000);
+            CuentaBancaria cuenta2 = new CuentaBancaria("002", "María García", 3000);
+
+            // Consultar saldo inicial
+            cuenta1.ConsultarSaldo();
+            cuenta2.ConsultarSaldo();
+
+            // Realizar operaciones
+            Console.WriteLine("\n--- Operaciones ---\n");
+
+            cuenta1.Depositar(1000);  // Depositar dinero
+            cuenta1.ConsultarSaldo();
+
+            cuenta1.Retirar(1500);    // Retirar dinero
+            cuenta1.ConsultarSaldo();
+
+            cuenta1.Transferir(cuenta2, 2000);  // Transferir dinero
+            cuenta1.ConsultarSaldo();
+            cuenta2.ConsultarSaldo();
+        }
+    }
+}
+
+
+### 3. Cómo ejecutar el proyecto:
+Abre el proyecto en Visual Studio o cualquier editor compatible con C#.
+Copia y pega el código en un archivo Program.cs.
+Compila y ejecuta el proyecto.
+Este es un ejemplo básico de cómo puedes comenzar a estructurar tu sistema bancario en C#.
+
